@@ -1,0 +1,11 @@
+<ul class="list-unstyled">
+  <li class="alert alert-success"
+      *ngFor="let item of items">
+    <button (click)="markComplete(item)"
+            *ngIf="!item.completed"
+            class="btn btn-sm btn-danger">X</button>
+    <span [ngClass]="{completed: item.completed}">
+      {{ item.description }}
+    </span>
+  </li>
+</ul>

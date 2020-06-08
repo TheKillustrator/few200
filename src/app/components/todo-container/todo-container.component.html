@@ -1,0 +1,10 @@
+<header>
+  <h2>Your Todo List</h2>
+</header>
+<div class="row">
+  <!-- When the child says something, what does the parent do with that information? -->
+  <app-todo-entry (itemAdded)="addAnItem($event)"></app-todo-entry>
+</div>
+<div class="row">
+  <app-todo-list [items]="stuff$ | async"></app-todo-list>
+</div>
