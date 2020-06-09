@@ -17,9 +17,9 @@ export class CounterEffects {
     this.action$.pipe(
       ofType(appActions.applicationStarted),
       map(() => localStorage.getItem('interval')), // -> null | '1' | '3' | '5'
-      filter(interval => interval !== null), // -> '1' | '3' | '5'
-      map(interval => parseInt(interval, 10)), // -> 1 | 3 | 5
-      map(interval => counterActions.countIntervalSet({ interval }))
+      filter(i => i !== null), // -> '1' | '3' | '5'
+      map(i => parseInt(i, 10)), // -> 1 | 3 | 5
+      map(interval => counterActions.countIntervalSet({ interval })) // aka interval: i
     ), { dispatch: true } // more of a maybe, given the filters
   );
 
