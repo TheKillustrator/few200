@@ -14,7 +14,7 @@ export class TodoDataService {
   }
 
   addItem(description: string) {
-    this.items = [{ description, completed: false }, ...this.items];
+    this.items = [{ description, completed: false }, ...this.items]; // state is immutable, so we reassign to new array
     this.subject.next(this.items);
   }
 }
