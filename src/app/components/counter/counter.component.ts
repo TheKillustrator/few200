@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from 'src/app/reducers';
-import { Store } from '@ngrx/store';
+import { AppState, selectGetCurrent } from 'src/app/reducers';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as actions from '../../actions/counter.actions';
 
@@ -15,7 +15,9 @@ export class CounterComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.current$ = this.store.select(s => s.counter.current);
+    this.current$ = this.store.pipe(
+      select(selectGetCurrent)
+    );
   }
 
   increment() {
