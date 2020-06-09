@@ -26,3 +26,8 @@ export const selectGetCurrent = createSelector(
   selectCounterBranch,
   b => b.current
 );
+
+export const selectResetDisabled = createSelector(
+  selectGetCurrent,
+  c => c === fromCounter.initialState.current
+);

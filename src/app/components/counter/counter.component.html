@@ -1,10 +1,26 @@
 <p class="lead">How many fucks do I have left to give?</p>
-<button class="btn btn-sm btn-primary"
-        (click)="decrement()">-</button>
-<span> {{current$ | async}} </span>
-<button class="btn btn-sm btn-primary"
-        (click)="increment()">+</button>
-&nbsp;
-<button type="button"
-        (click)="reset()"
-        class="btn btn-success">Reset</button>
+<div>
+  <button class="btn btn-sm btn-primary"
+          (click)="decrement()">-</button>
+  <span> {{current$ | async}} </span>
+  <button class="btn btn-sm btn-primary"
+          (click)="increment()">+</button>
+  &nbsp;
+  <button type="button"
+          (click)="reset()"
+          [disabled]="resetDisabled$ | async"
+          class="btn btn-sm btn-success">Reset</button>
+</div>
+<div class="btn-group btn-group-sm"
+     role="group"
+     aria-label="Basic example">
+  <button type="button"
+          (click)="setCountInterval(1)"
+          class="btn btn-secondary">x 1</button>
+  <button type="button"
+          (click)="setCountInterval(3)"
+          class="btn btn-secondary">x 3</button>
+  <button type="button"
+          (click)="setCountInterval(5)"
+          class="btn btn-secondary">x 5</button>
+</div>
