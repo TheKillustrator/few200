@@ -16,11 +16,14 @@
      aria-label="Basic example">
   <button type="button"
           (click)="setCountInterval(1)"
+          [disabled]="(interval$ | async) === 1"
           class="btn btn-secondary">x 1</button>
   <button type="button"
           (click)="setCountInterval(3)"
+          [disabled]="(interval$ | async) === 3"
           class="btn btn-secondary">x 3</button>
   <button type="button"
           (click)="setCountInterval(5)"
+          [disabled]="(interval$ | async) === 5"
           class="btn btn-secondary">x 5</button>
 </div>

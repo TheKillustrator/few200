@@ -31,3 +31,8 @@ export const selectResetDisabled = createSelector(
   selectGetCurrent,
   c => c === fromCounter.initialState.current
 );
+
+export const selectCountingInterval = createSelector(
+  selectCounterBranch,
+  b => b.by
+);
