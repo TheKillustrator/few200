@@ -2,12 +2,15 @@
      role="group">
   <!-- sort-by strings chosen to match the field names! -->
   <button type="button"
+          [disabled]="(by$ | async) === 'title'"
           (click)="setSort('title')"
           class="btn btn-secondary">Sort by Title</button>
   <button type="button"
+          [disabled]="(by$ | async) === 'artist'"
           (click)="setSort('artist')"
           class="btn btn-secondary">Sort by Artist</button>
   <button type="button"
+          [disabled]="(by$ | async) === 'album'"
           (click)="setSort('album')"
           class="btn btn-secondary">Sort by Album</button>
 </div>

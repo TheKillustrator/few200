@@ -47,6 +47,7 @@ export const selectSongs = createSelector(
   selectSongsUnsorted,
   selectSortingSongsBy,
   (songs, by) => {
+    // return a new array using spread operator to make SURE we see new change
     return [...songs.sort((lhs, rhs) => {
       // bracket notation only works because we chose strings that match field names
       if (lhs[by].toLowerCase() < rhs[by].toLowerCase()) {

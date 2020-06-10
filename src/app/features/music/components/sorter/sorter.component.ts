@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { MusicState } from '../../reducers';
+import { Store, select } from '@ngrx/store';
+import { MusicState, selectSortingSongsBy } from '../../reducers';
 import * as actions from '../../actions/songs.actions';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sorter',
@@ -10,9 +11,13 @@ import * as actions from '../../actions/songs.actions';
 })
 export class SorterComponent implements OnInit {
 
+  by$: Observable<string>;
   constructor(private store: Store<MusicState>) { }
 
   ngOnInit(): void {
+    this.by$ = this.store.pipe(
+      select(selectSortingSongsBy)
+    );
   }
 
   setSort(by: string) {
