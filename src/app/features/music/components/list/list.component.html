@@ -1,15 +1,12 @@
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Song Title Here</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Song Title by Song Artist</h6>
-    <p class="card-text">The Song Song Title is on the Album Album Title</p>
-  </div>
+<div class="alert alert-info"
+     *ngIf="songs.length === 0">
+  <h3>It looks like you have no songs! Add some!</h3>
 </div>
-
-<div class="card">
+<div class="card"
+     *ngFor="let song of songs">
   <div class="card-body">
-    <h5 class="card-title">Song Title Here</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Song Title by Song Artist</h6>
-    <p class="card-text">The Song Song Title is on the Album Album Title</p>
+    <h5 class="card-title">{{ song.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{song.title}} by {{song.artist}}</h6>
+    <p class="card-text">The song {{song.title}} is on the album {{song.album}}</p>
   </div>
 </div>
