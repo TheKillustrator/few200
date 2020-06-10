@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MusicState } from '../../reducers';
+import { Store } from '@ngrx/store';
+import { addSong } from '../../actions/songs.actions';
 
 @Component({
   selector: 'app-entry',
@@ -9,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EntryComponent implements OnInit {
 
   songForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private store: Store<MusicState>) { }
 
   ngOnInit(): void {
     this.songForm = this.formBuilder.group({
@@ -30,6 +33,6 @@ export class EntryComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.songForm.value);
+    this.store.dispatch(addSong(this.songForm.value));
   }
 }
