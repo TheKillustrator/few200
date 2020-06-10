@@ -1,1 +1,52 @@
-<p>entry works!</p>
+<form [formGroup]="songForm"
+      (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input name="title"
+           formControlName="title"
+           class="form-control">
+    <div class="alert alert-danger"
+         *ngIf="title.invalid && (title.dirty || title.touched)">
+      <div *ngIf="title.errors.required">
+        Title is required
+      </div>
+      <div *ngIf="title.errors.maxlength">
+        Title must be less than {{title.errors.maxlength.requiredLength}} characters
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="artist">Artist</label>
+    <input name="artist"
+           formControlName="artist"
+           class="form-control">
+    <div class="alert alert-danger"
+         *ngIf="artist.invalid && (artist.dirty || artist.touched)">
+      <div *ngIf="artist.errors.required">
+        Artist is required
+      </div>
+      <div *ngIf="artist.errors.maxlength">
+        Artist must be less than {{artist.errors.maxlength.requiredLength}} characters
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="album">Album</label>
+    <input name="album"
+           formControlName="album"
+           class="form-control">
+    <div class="alert alert-danger"
+         *ngIf="album.invalid && (album.dirty || album.touched)">
+      <div *ngIf="album.errors.required">
+        Album is required
+      </div>
+      <div *ngIf="album.errors.maxlength">
+        Album must be less than {{album.errors.maxlength.requiredLength}} characters
+      </div>
+    </div>
+  </div>
+  <input type="submit"
+         [disabled]="songForm.invalid"
+         value="Add Song To Collection"
+         class="btn btn-success">
+</form>
