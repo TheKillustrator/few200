@@ -24,6 +24,22 @@ export class SongEffects {
       )
     ), { dispatch: true }
   );
+
+  addSong$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(songActions.addSong),
+      switchMap(originalAction => this.http.post<SongEntity>(this.baseUrl + '/songs', {
+        title: originalAction.payload.title,
+        artist: originalAction.payload.artist,
+        album: originalAction.payload.album
+      }).pipe(
+        map(response => songActions.addSongSucceeded({
+          oldId: originalAction.payload.id,
+          payload: response
+        }))
+      ))
+    ), { dispatch: true }
+  );
 }
 
 interface GetResponse {

@@ -24,3 +24,8 @@ export const loadSongsSucceeded = createAction(
   '[music songs] loading songs suceeded',
   props<{ payload: SongEntity[] }>()
 );
+
+export const addSongSucceeded = createAction(
+  '[music songs] add song succeeded',
+  props<{ oldId: string, payload: SongEntity }>()
+);
