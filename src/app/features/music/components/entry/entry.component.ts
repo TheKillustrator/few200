@@ -32,7 +32,9 @@ export class EntryComponent implements OnInit {
     return this.songForm.get('album');
   }
 
-  submit() {
+  submit(myFocus: HTMLInputElement) {
     this.store.dispatch(addSong(this.songForm.value));
+    this.songForm.reset();
+    myFocus.focus();
   }
 }

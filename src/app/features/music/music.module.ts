@@ -6,9 +6,10 @@ import { ListComponent } from './components/list/list.component';
 import { StoreModule } from '@ngrx/store';
 import { featureName, reducers } from './reducers';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SorterComponent } from './components/sorter/sorter.component';
 
 @NgModule({
-  declarations: [MusicComponent, EntryComponent, ListComponent],
+  declarations: [MusicComponent, EntryComponent, ListComponent, SorterComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
