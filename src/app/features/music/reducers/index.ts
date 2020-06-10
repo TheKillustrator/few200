@@ -34,8 +34,13 @@ const { selectAll: selectSongEntityArray } = fromSongs.adapter.getSelectors(sele
 
 // 4. What the components need
 const selectSongsUnsorted = createSelector(
-  selectSongEntityArray, // SongEntity[]
-  (songs) => songs as Song[] // Song[] - what the component needs
+  selectSongEntityArray, // SongEntity[]s
+  (songs) => songs.map(song => {
+    return {
+      ...song,
+      isSaved: !song.id.startsWith('T')
+    } as Song;
+  }) // Song[] - what the component needs
 );
 
 export const selectSortingSongsBy = createSelector(
