@@ -19,3 +19,8 @@ export const setSongSortOrder = createAction(
   '[music songs] song sort order set',
   props<{ by: string }>()
 );
+
+export const loadSongsSucceeded = createAction(
+  '[music songs] loading songs suceeded',
+  props<{ payload: SongEntity[] }>()
+);
