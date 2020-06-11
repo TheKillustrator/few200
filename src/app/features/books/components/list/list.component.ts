@@ -14,4 +14,7 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleLoan(): void {
+    console.log('On loan toggled');
+  }
 }

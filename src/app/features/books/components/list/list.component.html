@@ -7,5 +7,13 @@
       Format: {{book.format}} &nbsp;
       <mark *ngIf="book.onLoan">Currently on loan</mark>
     </p>
+    <button type="button"
+            *ngIf="!book.onLoan"
+            (click)="toggleLoan()"
+            class="btn btn-sm btn-info">Loan</button>
+    <button type="button"
+            *ngIf="book.onLoan"
+            (click)="toggleLoan()"
+            class="btn btn-sm btn-info">Return</button>
   </div>
 </div>
