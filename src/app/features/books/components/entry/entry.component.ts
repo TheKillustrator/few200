@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BooksComponent } from '../../books.component';
 import { BookState } from '../../reducers/books.reducer';
 import { Store } from '@ngrx/store';
@@ -18,10 +18,20 @@ export class EntryComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookForm = this.builder.group({
-      title: [''],
-      author: [''],
-      format: ['']
+      title: ['', Validators.required],
+      author: ['', Validators.required],
+      format: ['', Validators.required]
     });
+  }
+
+  get title() {
+    return this.bookForm.get('title');
+  }
+  get author() {
+    return this.bookForm.get('author');
+  }
+  get format() {
+    return this.bookForm.get('format');
   }
 
   submit(element: HTMLInputElement) {
