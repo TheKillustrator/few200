@@ -4,7 +4,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TodoContainerComponent } from './components/todo-container/todo-container.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MusicComponent } from './features/music/music.component';
-
+import { BooksComponent } from './features/books/books.component';
 
 const routes: Routes = [
   {
@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'music',
     component: MusicComponent
+  },
+  {
+    path: 'books',
+    component: BooksComponent
   },
   {
     path: 'dashboard',

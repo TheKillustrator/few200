@@ -16,6 +16,7 @@ import { reducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { CounterEffects } from './effects/counter.effects';
 import { MusicModule } from './features/music/music.module';
+import { BooksModule } from './features/books/books.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MusicModule } from './features/music/music.module';
     BrowserModule,
     AppRoutingModule,
     MusicModule,
+    BooksModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([CounterEffects])
