@@ -1,1 +1,30 @@
-<p>entry works!</p>
+<form [formGroup]="bookForm"
+      (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input name="title"
+           formControlName="title"
+           class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="author">Author</label>
+    <input name="author"
+           formControlName="author"
+           class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="format">Format</label>
+    <select class="custom-select"
+            formControlName="format">
+      <option value=""
+              disabled> Select the format
+      </option>
+      <option *ngFor="let format of formats"
+              [ngValue]="format">{{format}}</option>
+    </select>
+  </div>
+
+  <input type="submit"
+         value="Add Book To Collection"
+         class="btn btn-success">
+</form>
