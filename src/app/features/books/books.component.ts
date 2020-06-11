@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { BookState } from './reducers/books.reducer';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Book } from './models';
+import { selectBooks } from './reducers';
 
 @Component({
   selector: 'app-books',
@@ -7,9 +12,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksComponent implements OnInit {
 
-  constructor() { }
+  books$: Observable<Book[]>;
+  constructor(private store: Store<BookState>) { }
 
   ngOnInit(): void {
+    this.books$ = this.store.pipe(
+      select(selectBooks)
+    );
   }
 
 }
