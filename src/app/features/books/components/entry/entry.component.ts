@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { BooksComponent } from '../../books.component';
 import { BookState } from '../../reducers/books.reducer';
 import { Store } from '@ngrx/store';
 import { addBook } from '../../actions/books.actions';
