@@ -24,7 +24,9 @@ export class EntryComponent implements OnInit {
     });
   }
 
-  submit() {
+  submit(element: HTMLInputElement) {
     this.store.dispatch(addBook(this.bookForm.value));
+    this.bookForm.reset();
+    element.focus();
   }
 }
