@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../../models';
+import { Store } from '@ngrx/store';
+import { BookState } from '../../reducers/books.reducer';
+import * as actions from '../../actions/books.actions';
 
 @Component({
   selector: 'app-list',
@@ -9,12 +12,12 @@ import { Book } from '../../models';
 export class ListComponent implements OnInit {
 
   @Input() books: Book[] = [];
-  constructor() { }
+  constructor(private store: Store<BookState>) { }
 
   ngOnInit(): void {
   }
 
-  toggleLoan(): void {
-    console.log('On loan toggled');
+  toggleLoan(id: string, onLoan: boolean) {
+    this.store.dispatch(actions.setLoanStatus({ id, onLoan }));
   }
 }

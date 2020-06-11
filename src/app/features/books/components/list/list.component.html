@@ -9,11 +9,11 @@
     </p>
     <button type="button"
             *ngIf="!book.onLoan"
-            (click)="toggleLoan()"
+            (click)="toggleLoan(book.id, true)"
             class="btn btn-sm btn-info">Loan</button>
     <button type="button"
             *ngIf="book.onLoan"
-            (click)="toggleLoan()"
+            (click)="toggleLoan(book.id, false)"
             class="btn btn-sm btn-info">Return</button>
   </div>
 </div>

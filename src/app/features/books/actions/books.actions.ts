@@ -1,5 +1,5 @@
 import { BookEntity } from '../reducers/books.reducer';
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
 let id = 0;
 
@@ -13,4 +13,9 @@ export const addBook = createAction(
       format
     } as BookEntity
   })
+);
+
+export const setLoanStatus = createAction(
+  '[books book] loan status set',
+  props<{ id: string, onLoan: boolean }>()
 );
